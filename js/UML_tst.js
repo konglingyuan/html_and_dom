@@ -6,7 +6,9 @@ function getScore () {
 
   score += getRadioAnswer(form);
 
-  score += getCheckAnswer(form);
+  score += getCheckAnswer(form.checkOne, "A,B,D");
+
+  score += getCheckAnswer(form.checkTwo, "A,B,C");
 
   score += getJudgeAnswer(form);
 
@@ -63,25 +65,19 @@ function getRadioAnswer (form) {
   return score;
 }
 
-function getCheckAnswer (form) {
+function getCheckAnswer (checkBoxs, checkAnswer) {
   var score = 0;
 
-  var arrayOne = [form.checkOneA, form.checkOneB, form.checkOneC, form.checkOneD];
+  var answer = [];
 
-  for (var i = 0; i < arrayOne.length; i++) {
-    if (arrayOne[0].checked && arrayOne[1].checked && arrayOne[3].checked) {
-      score += 10;
+  _.forEach(checkBoxs, function (checkBox) {
+    if (checkBox.checked) {
+      answer.push(checkBox.value);
     }
-    break;
-  }
+  });
 
-  var arrayTwo = [form.checkTwoA, form.checkTwoB, form.checkTwoC, form.checkTwoD];
-
-  for (var j = 0; j < arrayTwo.length; j++) {
-    if (arrayTwo[0].checked && arrayTwo[1].checked && arrayTwo[2].checked) {
-      score += 10;
-    }
-    break;
+  if (answer.toString() === checkAnswer) {
+    score += 10;
   }
 
   return score;
