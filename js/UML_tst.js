@@ -15,6 +15,8 @@ function getScore () {
   score += getSimpleAnswer(form);
 
   document.getElementById("account").value = score;
+
+  return false;
 }
 
 function getInputAnswer (form) {
@@ -70,7 +72,7 @@ function getCheckAnswer (checkBoxs, checkAnswer) {
 
   var answer = [];
 
-  _.forEach(checkBoxs, function (checkBox) {
+  _.forEach (checkBoxs, function (checkBox) {
     if (checkBox.checked) {
       answer.push(checkBox.value);
     }
@@ -86,13 +88,13 @@ function getCheckAnswer (checkBoxs, checkAnswer) {
 function getJudgeAnswer (form) {
   var score = 0;
 
-  _.forEach(form.radioForJudgeOne, function (radioForJudgeOne) {
+  _.forEach (form.radioForJudgeOne, function (radioForJudgeOne) {
     if (radioForJudgeOne.checked && radioForJudgeOne.value == "N") {
       score += 10;
     }
   });
 
-  _.forEach(form.radioForJudgeTwo, function (radioForJudgeTwo) {
+  _.forEach (form.radioForJudgeTwo, function (radioForJudgeTwo) {
     if (radioForJudgeTwo.checked && radioForJudgeTwo.value == "Y") {
       score += 10;
     }
