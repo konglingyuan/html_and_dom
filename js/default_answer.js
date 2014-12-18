@@ -7,7 +7,9 @@ function DefaultAnswer(questionNum, defaultAnswer, score) {
 DefaultAnswer.all = function() {
   return [
     new DefaultAnswer("fill_1_1", ["统一建模语言"], 5),
-    new DefaultAnswer("fill_1_2", ["封装性", "继承性", "多态性"], 5),
+    new DefaultAnswer("fill_1_2_1", ["封装性", "继承性", "多态性"], 5),
+    new DefaultAnswer("fill_1_2_2", ["封装性", "继承性", "多态性"], 5),
+    new DefaultAnswer("fill_1_2_3", ["封装性", "继承性", "多态性"], 5),
     new DefaultAnswer("radio_2_1", ["B"], 5),
     new DefaultAnswer("radio_2_2", ["A"], 5),
     new DefaultAnswer("check_3_1", ["A", "B", "D"], 5),
