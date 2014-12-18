@@ -2,7 +2,17 @@ function getScore () {
   var form = document.getElementById("form");
   var score = 0;
 
-  score += getInputAnswer(form);
+  var fillOne = new FillScore(form.firstFile, ["统一建模语言"], 5);
+  score += fillOne.getFillScore();
+
+  // var fillTwoAnswer = ["继承性","封装性","多态性"];
+  //
+  // var fillArrays = [form.secondFileOne, form.secondFileTwo, form.secondFileThree];
+  //
+  // _.forEach(fillArrays, function(fillArray) {
+  //   var fillTwo = new FillScore(fillArray, fillTwoAnswer, 5);
+  //   score += fillTwo.getFillScore();
+  // });
 
   score += getRadioAnswer(form);
 
@@ -12,42 +22,46 @@ function getScore () {
 
   score += getJudgeAnswer(form);
 
-  score += getSimpleAnswer(form);
+  var simpleOneAnswer = ["模型是对现实世界的简化和抽象，模型是对所研究的系统、过程、事物或概念的一种表达形式。"+
+                        "可以是物理实体；可以是某种图形；或者是一种数学表达式。"];
+
+  var simpleOne = new FillScore(form.simpleOne, simpleOneAnswer, 20);
+  score += simpleOne.getFillScore();
 
   document.getElementById("account").value = score;
 
   return false;
 }
 
-function getInputAnswer (form) {
-  var score = 0;
-
-  if (form.firstFile.value === "统一建模语言") {
-    score += 5;
-  }
-
-  var arrays = ["封装性", "继承性", "多态性"];
-
-  var secondFileOne = form.secondFileOne.value;
-  var secondFileTwo = form.secondFileTwo.value;
-  var secondFileThree = form.secondFileThree.value;
-
-  _.forEach (arrays, function (array) {
-    if (secondFileOne === array) {
-      score += 5;
-    }
-
-    if (secondFileTwo !== secondFileOne && secondFileTwo === array) {
-      score += 5;
-    }
-
-    if (secondFileThree !== secondFileTwo && secondFileThree !== secondFileOne && secondFileThree === array) {
-      score += 5;
-    }
-  });
-
-  return score;
-}
+// function getInputAnswer (form) {
+//   var score = 0;
+//
+//   if (form.firstFile.value === "统一建模语言") {
+//     score += 5;
+//   }
+//
+//   var arrays = ["封装性", "继承性", "多态性"];
+//
+//   var secondFileOne = form.secondFileOne.value;
+//   var secondFileTwo = form.secondFileTwo.value;
+//   var secondFileThree = form.secondFileThree.value;
+//
+//   _.forEach (arrays, function (array) {
+//     if (secondFileOne === array) {
+//       score += 5;
+//     }
+//
+//     if (secondFileTwo !== secondFileOne && secondFileTwo === array) {
+//       score += 5;
+//     }
+//
+//     if (secondFileThree !== secondFileTwo && secondFileThree !== secondFileOne && secondFileThree === array) {
+//       score += 5;
+//     }
+//   });
+//
+//   return score;
+// }
 
 function getRadioAnswer (form) {
   var score = 0;
@@ -99,19 +113,6 @@ function getJudgeAnswer (form) {
       score += 10;
     }
   });
-
-  return score;
-}
-
-function getSimpleAnswer (form) {
-  var score = 0;
-
-  var str = "模型是对现实世界的简化和抽象，模型是对所研究的系统、过程、事物或概念的一种表达形式。"+
-            "可以是物理实体；可以是某种图形；或者是一种数学表达式。";
-
-  if (form.simpleOne.value === str) {
-    score += 20;
-  }
 
   return score;
 }
