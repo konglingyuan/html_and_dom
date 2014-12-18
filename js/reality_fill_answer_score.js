@@ -9,8 +9,6 @@ RealityFillAnswerScore.prototype.constructor = RealityFillAnswerScore;
 FillScore.prototype.getScore = function() {
   var score = 0;
 
-  var allAnswer = DefaultAnswer.getAllAnswer();
-
   var findAllAnswer = DefaultAnswer.all();
 
   for(var i = 0; i < findAllAnswer.length; i++) {
