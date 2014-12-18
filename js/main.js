@@ -14,6 +14,9 @@ function getScore () {
   var fillScoreTwoC = new RealityFillAnswerScore(form.fill_1_2_3.name, form.fill_1_2_3.value);
   score += fillScoreTwoC.getScore();
 
+  var radioScoreOne = new RealityRadioAnswerScore(form.radio_2_1.name, form.radio_2_1.value);
+  score += radioScoreOne();
+
   document.getElementById("account").value = score;
 
   return false;

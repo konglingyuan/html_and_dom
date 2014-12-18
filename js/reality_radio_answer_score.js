@@ -1,10 +1,7 @@
 function RealityRadioAnswerScore(questionNum, realityAnswers) {
-  RealityAnswer.call(this.questionNum, realityAnswers);
+  this.questionNum = questionNum;
+  this.realityAnswers = realityAnswers;
 }
-
-RealityRadioAnswerScore.prototype = Object.create(RealityAnswer.prototype);
-
-RealityRadioAnswerScore.prototype.constructor = RealityRadioAnswerScore;
 
 RealityRadioAnswerScore.prototype.getScore =function() {
   var score = 0;
