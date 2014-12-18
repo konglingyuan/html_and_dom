@@ -20,6 +20,12 @@ function getScore () {
   var radioScoreTwo = new RealityRadioAnswerScore(form.radio_2_2, form.radio_2_2.value);
   score += radioScoreTwo.getScore();
 
+  var judgeScoreOne = new RealityRadioAnswerScore(form.judge_4_1, form.judge_4_1.value);
+  score += judgeScoreOne.getScore();
+
+  var judgeScoreTwo = new RealityRadioAnswerScore(form.judge_4_2, form.judge_4_2.value);
+  score += judgeScoreTwo.getScore();
+
   document.getElementById("account").value = score;
 
   return false;

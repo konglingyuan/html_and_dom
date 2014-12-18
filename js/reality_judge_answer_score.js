@@ -1,19 +1,22 @@
 function RealityJudgeAnswerScore(questionNum, realityAnswers) {
-  RealityAnswer.call(this.questionNum, realityAnswers);
+  this.questionNum = questionNum;
+  this.realityAnswers = realityAnswers;
 }
-
-RealityJudgeAnswerScore.prototype = Object.create(RealityAnswer.prototype);
-
-RealityJudgeAnswerScore.prototype.constructor = RealityCheckAnswerScore;
 
 RealityJudgeAnswerScore.prototype.getScore = function() {
   var score = 0;
 
   var findAllAnswer = DefaultAnswer.all();
 
+  var _this = this;
+
+  var oneNum = _.find(_this.questionNum, function(oneNum) {
+    return oneNum;
+  });
+
   for(var i = 0; i < findAllAnswer.length; i++) {
-    if(this.questionNum === findAllAnswer[i].qusetionNum) {
-      score = (realityAnswers === findAllAnswer[i].defaultAnswer.toString()) ? findAllAnswer[i].score : 0;
+    if(oneNum.name === findAllAnswer[i].questionNum) {
+      score = (this.realityAnswers === findAllAnswer[i].defaultAnswer.toString()) ? findAllAnswer[i].score : 0;
     }
   }
 
