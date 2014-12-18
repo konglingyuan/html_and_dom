@@ -1,21 +1,27 @@
-function RealityCheckAnswerScore(questionNum, realityAnswers) {
-  RealityAnswer.call(this.questionNum, realityAnswers);
+function RealityCheckAnswerScore(questionNum) {
+  this.questionNum = questionNum;
 }
-
-RealityCheckAnswerScore.prototype = Object.create(RealityAnswer.prototype);
-
-RealityCheckAnswerScore.prototype.constructor = RealityCheckAnswerScore;
 
 RealityCheckAnswerScore.prototype.getScore = function() {
   var score = 0;
 
   var findAllAnswer = DefaultAnswer.all();
 
-  for(var i = 0; i < findAllAnswer.length; i++) {
-    if(this.questionNum === findAllAnswer[i].qusetionNum) {
-      score = (realityAnswers === findAllAnswer[i].defaultAnswer.toString()) ? findAllAnswer[i].score : 0;
+  var _this = this;
+
+  var answer = [];
+
+  _.forEach(this.questionNum, function(oneNum) {
+    if(oneNum.checked) {
+      answer.push(oneNum.value);
     }
-  }
+
+    for(var i = 0; i < findAllAnswer.length; i++) {
+      if(oneNum.name === findAllAnswer[i].questionNum) {
+        score = (answer.toString() === findAllAnswer[i].defaultAnswer.toString()) ? findAllAnswer[i].score : 0;
+      }
+    }
+  });
 
   return score;
 };
