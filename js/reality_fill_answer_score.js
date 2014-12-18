@@ -9,11 +9,23 @@ RealityFillAnswerScore.prototype.constructor = RealityFillAnswerScore;
 FillScore.prototype.getScore = function() {
   var score = 0;
 
-  var findAllAnswer = DefaultAnswer.all();
+  var answers = [];
 
-  for(var i = 0; i < findAllAnswer.length; i++) {
-    if(this.questionNum === findAllAnswer[i].qusetionNum) {
-      score = realityAnswers === findAllAnswer[i].defaultAnswer ? findAllAnswer[i].score : 0;
+  var findAllAnswer = _.find(DefaultAnswer.all(), function(findAllAnswer) {
+    return findAllAnswer;
+  });
+
+  for(var i = 0; i < this.realityAnswers.length; i++) {
+    if(this.realityAnswers[i]) {
+      answer.push(this.realityAnswers[i]);
+    }
+  }
+
+  if(this.questionNum === findAllAnswer.questionNum) {
+    for(var j = 0; j < answer.length; j++) {
+      if(_.contains(findAllAnswer.defaultAnswer, answer[i]) === true) {
+        score = findAllAnswer.score;
+      }
     }
   }
 

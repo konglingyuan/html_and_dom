@@ -13,7 +13,7 @@ RealityRadioAnswerScore.prototype.getScore =function() {
 
   for(var i = 0; i < findAllAnswer.length; i++) {
     if(this.questionNum === findAllAnswer[i].qusetionNum) {
-      score = (realityAnswers === findAllAnswer[i].defaultAnswer) ? findAllAnswer[i].score : 0;
+      score = realityAnswers === findAllAnswer[i].defaultAnswer ? findAllAnswer[i].score : 0;
     }
   }
 
