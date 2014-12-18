@@ -4,7 +4,7 @@ function DefaultAnswer(qusetionNum, defaultAnswer, score) {
   this.score = score;
 }
 
-DefaultAnswer.getAllAnswer = function() {
+DefaultAnswer.all = function() {
   return [
     new DefaultAnswer("fill_1_1", ["统一建模语言"], 5),
     new DefaultAnswer("fill_1_2", ["封装性", "继承性", "多态性"], 5),

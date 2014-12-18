@@ -1,18 +1,21 @@
-function FillScore(questionNum, defaultAnswers, score) {
-  this.questionNum = questionNum;
-  this.defaultAnswers = defaultAnswers;
-  this.score = score;
+function RealityFillAnswerScore(questionNum, realityAnswers) {
+  RealityAnswer.call(this.questionNum, realityAnswers);
 }
 
-FillScore.prototype.getFillScore = function() {
+RealityFillAnswerScore.prototype = Object.create(RealityAnswer.prototype);
+
+RealityFillAnswerScore.prototype.constructor = RealityFillAnswerScore;
+
+FillScore.prototype.getScore = function() {
   var score = 0;
 
-  var fillAnswer = this.questionNum.value;
-  var defaultAnswers = this.defaultAnswers;
+  var allAnswer = DefaultAnswer.getAllAnswer();
 
-  for(var i = 0; i < defaultAnswers.length; i++) {
-    if(fillAnswer === defaultAnswers[i]) {
-      score += this.score;
+  var findAllAnswer = DefaultAnswer.all();
+
+  for(var i = 0; i < findAllAnswer.length; i++) {
+    if(this.questionNum === findAllAnswer[i].qusetionNum) {
+      score = realityAnswers === findAllAnswer[i].defaultAnswer ? findAllAnswer[i].score : 0;
     }
   }
 
