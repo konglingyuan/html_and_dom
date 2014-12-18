@@ -1,12 +1,12 @@
-function RealityRadioAnswerScore(questionNum, realityAnswers) {
+function RealityJudgeAnswerScore(questionNum, realityAnswers) {
   RealityAnswer.call(this.questionNum, realityAnswers);
 }
 
-RealityRadioAnswerScore.prototype = Object.create(RealityAnswer.prototype);
+RealityJudgeAnswerScore.prototype = Object.create(RealityAnswer.prototype);
 
-RealityRadioAnswerScore.prototype.constructor = RealityRadioAnswerScore;
+RealityJudgeAnswerScore.prototype.constructor = RealityCheckAnswerScore;
 
-RealityRadioAnswerScore.prototype.getScore =function() {
+RealityJudgeAnswerScore.prototype.getScore = function() {
   var score = 0;
 
   var findAllAnswer = DefaultAnswer.all();
