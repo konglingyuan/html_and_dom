@@ -32,6 +32,9 @@ function getScore () {
   var judgeScoreTwo = new RealityJudgeAnswerScore(form.judge_4_2, form.judge_4_2.value);
   score += judgeScoreTwo.getScore();
 
+  var shortScoreOne = new RealityShortAnswerScore(form.short_5_1.name, form.short_5_1.value);
+  score += shortScoreOne.getScore();
+
   document.getElementById("account").value = score;
 
   return false;
