@@ -18,25 +18,30 @@
   <body>
     <form id = "form">
 
-      <div>
-        <div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
           <h1>统一建模语言理论测试</h1>
         </div>
-        <div>
-          <div class = ".col-md-4">
-            考试科目：<u>统一建模语言UML</u>  时间:<u>100 分钟 </u>  得分:<input id = "account" type = "text" size = "12">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4">考试科目:<u>统一建模语言UML</u></div>
+            <div class="col-md-4">时间:<u>100 分钟 </u></div>
+            <div class="col-md-4">得分:<input id = "account" type = "text"></div>
           </div>
-          <div>
-            班级:<input id = "class" type = "text" size = "12">  学号:<input id = "schoolNum" type = "text" size = "12">  姓名:<input id = "names" type = "text" size = "12">
+
+          <div class="row">
+            <div class="col-md-4">班级:<input id = "class" type = "text"></div>
+            <div class="col-md-4">学号:<input id = "schoolNum" type = "text"></div>
+            <div class="col-md-4">姓名:<input id = "names" type = "text"></div>
           </div>
         </div>
       </div>
 
-      <div>
-        <div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
           <h4>一、填空题</h4>
         </div>
-        <div>
+        <div class="panel-body">
           <div>
             1. UML的中文全称是：<input name = "fill_1_1" type = "text">
           </div>
@@ -46,12 +51,12 @@
         </div>
       </div>
 
-      <div>
-        <div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
           <h4>二、选择题</h4>
         </div>
 
-        <div>
+        <div class="panel-body">
           <ol>
             <li>
               UML 与软件工程的关系是:
@@ -76,12 +81,12 @@
         </div>
       </div>
 
-      <div>
-        <div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
           <h4>三、多选题</h4>
         </div>
 
-        <div>
+         <div class="panel-body">
           <ol>
             <li>
               用例的粒度分为以下哪三种:
@@ -106,33 +111,35 @@
         </div>
       </div>
 
-      <div>
-        <div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
           <h4>四、判断题</h4>
         </div>
 
-        <div>
-          1． 用例图只是用于和客户交流和沟通的，用于确定需求。<input type = "radio" name = "judge_4_1" value = "Y">YES<input type = "radio" value = "N" name = "judge_4_1">NO
-        </div>
+        <div class="panel-body">
+          <div>
+            1． 用例图只是用于和客户交流和沟通的，用于确定需求。<input type = "radio" name = "judge_4_1" value = "Y">YES<input type = "radio" value = "N" name = "judge_4_1">NO
+          </div>
 
-        <div>
-          2． 在状态图中，终止状态在一个状态图中允许有任意多个。<input type = "radio" name = "judge_4_2" value = "Y">YES <input type = "radio" value = "N" name = "judge_4_2">NO
+          <div>
+            2． 在状态图中，终止状态在一个状态图中允许有任意多个。<input type = "radio" name = "judge_4_2" value = "Y">YES <input type = "radio" value = "N" name = "judge_4_2">NO
+          </div>
         </div>
       </div>
 
-      <div>
-        <div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
           <h4>五、简答题（每题 4 分，共 20 分）</h4>
         </div>
 
-        <div>
+        <div class="panel-body">
           <p>1． 简述什么是模型以及模型的表现形式?</p>
           <textarea rows="5" cols="30" name = "short_5_1"></textarea>
         </div>
       </div>
 
       <div>
-        <input type = "button" class="btn btn-primary btn-sm" value = "提交" onclick = "return getScore();">
+        <input type = "button" class="btn btn-primary btn-lg" value = "提交" onclick = "return getScore();">
       </div>
     </form>
   </body>
