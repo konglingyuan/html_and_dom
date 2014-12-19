@@ -1,6 +1,5 @@
-function RealityFillAnswerScore(questionNum, realityAnswers) {
-  this.questionNum = questionNum;
-  this.realityAnswers = realityAnswers;
+function RealityFillAnswerScore(questionNums) {
+  this.questionNums = questionNums;
 }
 
 RealityFillAnswerScore.prototype.getScore = function() {
@@ -10,17 +9,19 @@ RealityFillAnswerScore.prototype.getScore = function() {
 
   var _this = this;
 
-  if(this.realityAnswers) {
-    answers.push(this.realityAnswers);
-  }
+  var tagName;
 
-  _.forEach(DefaultAnswer.all(), function(findAllAnswer) {
-    if(_this.questionNum === findAllAnswer.questionNum) {
-      for(var i = 0; i < answers.length; i++) {
-        score = _.contains(findAllAnswer.defaultAnswer, answers[i]) ? findAllAnswer.score : 0;
-      }
+  _.forEach(_this.questionNums, function(questionNum) {
+    if(questionNum) {
+      answers.push(questionNum.value);
+      tagName = questionNum.name;
     }
-    return;
+  });
+
+  var findName = _.find(DefaultAnswer.all(), { 'questionNum' : tagName });
+
+  _.forEach(findName.defaultAnswer, function(defaultAnswer) {
+    score += _.contains(answers, defaultAnswer) ? findName.score : 0;
   });
 
   return score;
