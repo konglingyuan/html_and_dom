@@ -16,27 +16,27 @@
 
   <body>
     <form id = "form">
-      <header>
+      <div>
         <h1>统一建模语言理论测试</h1>
-      </header>
-      <section>
+      </div>
+      <div>
         <pre>
           考试科目：<u>统一建模语言UML</u>  时间:<u>100 分钟 </u>  得分:<input id = "account" type = "text" size = "12">
 
           班级:<input id = "class" type = "text" size = "12">  学号:<input id = "schoolNum" type = "text" size = "12">  姓名:<input id = "names" type = "text" size = "12">
         </pre>
-      </section>
+      </div>
 
-      <section>
+      <div>
         <h4>一、填空题</h4>
         <pre>
           1. UML的中文全称是：<input name = "fill_1_1" type = "text">
 
           2. 对象最突出的特征是：<input name = "fill_1_2" type = "text">、<input name = "fill_1_2" type = "text">、<input name = "fill_1_2" type = "text" />
         </pre>
-      </section>
+      </div>
 
-      <section>
+      <div>
         <h4>二、选择题</h4>
         <pre>
           1．UML 与软件工程的关系是：
@@ -51,9 +51,9 @@
           <input type = "radio" name = "radio_2_2" value = "C">C.单继承和多继承都支持
           <input type = "radio" name = "radio_2_2" value = "D">D.单继承和多继承都不支持
         </pre>
-      </section>
+      </div>
 
-      <section>
+      <div>
         <h4>三、多选题</h4>
         <pre>
           1． 用例的粒度分为以下哪三种。
@@ -68,29 +68,29 @@
           <input type = "checkBox" name = "check_3_2" value = "C">C.操作(Operation)
           <input type = "checkBox" name = "check_3_2" value = "D">D.方法(Function)
         </pre>
-      </section>
+      </div>
 
-      <section>
+      <div>
         <h4>四、判断题</h4>
         <pre>
           1． 用例图只是用于和客户交流和沟通的，用于确定需求。<input type = "radio" name = "judge_4_1" value = "Y">YES <input type = "radio" value = "N" name = "judge_4_1">NO
 
           2． 在状态图中，终止状态在一个状态图中允许有任意多个。<input type = "radio" name = "judge_4_2" value = "Y">YES <input type = "radio" value = "N" name = "judge_4_2">NO
         </pre>
-      </section>
+      </div>
 
-      <section>
+      <div>
         <h4>五、简答题（每题 4 分，共 20 分）</h4>
         <pre>
           1． 简述什么是模型以及模型的表现形式?
 
           <textarea rows="5" cols="30" name = "short_5_1"></textarea>
         </pre>
-      </section>
+      </div>
 
-      <section>
+      <div>
         <input type = "submit" value = "提交" onclick = "return getScore();">
-      </section>
+      </div>
     </form>
   </body>
 </html>
