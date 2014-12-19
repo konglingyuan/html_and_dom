@@ -2,7 +2,15 @@ function getScore () {
   var score = 0;
   var form = document.getElementById("form");
 
-  this.getInfomationTip();
+  var inputsInfomations = [
+    { id : form.class, text : "班级" },
+    { id : form.schoolNum, text : "学号" },
+    { id : form.names, text : "姓名" }
+  ];
+
+  if(promptMessage(inputsInfomations)) {
+    return false;
+  }
 
   var fillScoreOne = new RealityFillAnswerScore(form.fill_1_1);
   score += fillScoreOne.getScore();
@@ -36,14 +44,15 @@ function getScore () {
   return false;
 }
 
-function getInfomationTip() {
-  if(form.class.length === 0 && form.class === "") {
-    alert("请输入班级!");
+function promptMessage(inputsInfomations) {
+  for (var i = 0; i < inputsInfomations.length; i++) {
+    var inputsInfomation = inputsInfomations[i];
+    var element = inputsInfomation.id;
+    if (element && _.isEmpty(element.value)) {
+      alert('请输入' + inputsInfomation.text + '！');
+      return true;
+    }
   }
-  if(form.schoolNum.length === 0 && form.schoolNum === "") {
-    alert("请输入学号!");
-  }
-  if(form.names.length === 0 && form.names === "") {
-    alert("请输入姓名!");
-  }
+
+  return false;
 }
