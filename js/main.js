@@ -3,9 +3,9 @@ function getScore () {
   var form = document.getElementById("form");
 
   var inputsInfomations = [
-    { id : form.class, text : "班级" },
-    { id : form.schoolNum, text : "学号" },
-    { id : form.names, text : "姓名" }
+    { id : form.class, text : "class" },
+    { id : form.schoolNum, text : "number" },
+    { id : form.names, text : "name" }
   ];
 
   if(promptMessage(inputsInfomations)) {
@@ -49,7 +49,7 @@ function promptMessage(inputsInfomations) {
     var inputsInfomation = inputsInfomations[i];
     var element = inputsInfomation.id;
     if (element && _.isEmpty(element.value)) {
-      alert('请输入' + inputsInfomation.text + '！');
+      alert("Please input " + inputsInfomation.text + "!");
       return true;
     }
   }
