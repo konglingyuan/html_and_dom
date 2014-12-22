@@ -12,6 +12,6 @@ RealityRadioAnswerScore.prototype.getScore =function(elementName) {
   var oneNum = _.find(elementName, { checked : true });
 
   if(oneNum) {
-    return this.realityAnswer === oneNum.value ? this.score : 0;
+    this.totalScore = this.realityAnswer === oneNum.value ? this.score : 0;
   }
 };
