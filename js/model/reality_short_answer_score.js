@@ -8,6 +8,6 @@ RealityShortAnswerScore.prototype.constructor = RealityShortAnswerScore;
 
 RealityShortAnswerScore.prototype.getScore = function(elementName) {
   if (elementName) {
-    return this.realityAnswers === elementName.value.trim() ? this.score : 0;
+    this.totalScore = this.realityAnswers === elementName.value.trim() ? this.score : 0;
   }
 };
