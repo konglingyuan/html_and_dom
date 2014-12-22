@@ -6,10 +6,10 @@ RealityJudgeAnswerScore.prototype = Object.create(RealityAnswer.prototype);
 
 RealityJudgeAnswerScore.prototype.constructor = RealityJudgeAnswerScore;
 
-RealityJudgeAnswerScore.prototype.getScore = function(elementName) {
-  var _this = this;
+RealityJudgeAnswerScore.prototype.getScore = function(document) {
+  var elements = document.getElementsByName(this.questionNums);
 
-  var oneNum = _.find(elementName, { checked : true });
+  var oneNum = _.find(elements, { checked : true });
 
   if(oneNum) {
     this.totalScore = this.realityAnswer === oneNum.value ? this.score : 0;

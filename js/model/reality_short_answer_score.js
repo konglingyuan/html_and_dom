@@ -6,8 +6,10 @@ RealityShortAnswerScore.prototype = Object.create(RealityShortAnswerScore.protot
 
 RealityShortAnswerScore.prototype.constructor = RealityShortAnswerScore;
 
-RealityShortAnswerScore.prototype.getScore = function(elementName) {
-  if (elementName) {
-    this.totalScore = this.realityAnswer === elementName.value.trim() ? this.score : 0;
+RealityShortAnswerScore.prototype.getScore = function(document) {
+  var element = document.getElementsByName(this.questionNums);
+
+  if (element) {
+    this.totalScore = this.realityAnswer === element.value.trim() ? this.score : 0;
   }
 };

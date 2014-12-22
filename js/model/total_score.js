@@ -4,11 +4,9 @@ function TotalScore(document, realityAnswers) {
 }
 
 TotalScore.prototype.getTotalScore = function() {
-  var _this = this;
-
   var scores = [];
-  _.forEach(_this.realityAnswers, function(realityAnswer) {
-    realityAnswer.getScore(_this.document);
+  _.forEach(this.realityAnswers, function(realityAnswer) {
+    realityAnswer.getScore(this.document);
   });
 
   _.forEach(this.realityAnswers, function(realityAnswer) {
