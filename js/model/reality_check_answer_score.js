@@ -11,13 +11,13 @@ RealityCheckAnswerScore.prototype.getScore = function(elementName) {
 
   var answer = [];
 
-  _.forEach(this.questionNum, function(oneNum) {
+  _.forEach(elementName, function(oneNum) {
     if(oneNum.checked) {
       answer.push(oneNum.value);
     }
 
-    if(oneNum.name === findAllAnswer[i].questionNum) {
-      return (answer.toString() === elementName.value.toString()) ? this.score : 0;
+    if(oneNum.name === elementName) {
+      this.totalScore = (answer.toString() === elementName.value.toString()) ? this.score : 0;
     }
   });
 };
