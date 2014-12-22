@@ -4,6 +4,6 @@ function RealityAnswer(questionNum, defaultAnswer, score) {
   this.score = score;
 }
 
-RealityAnswer.prototype.getScore = function() {
+RealityAnswer.prototype.getScore = function(elementName) {
 
 };
