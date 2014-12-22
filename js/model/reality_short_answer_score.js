@@ -1,9 +1,12 @@
-function RealityShortAnswerScore(questionNum, realityAnswers) {
-  this.questionNum = questionNum;
-  this.realityAnswers = realityAnswers;
+function RealityShortAnswerScore(questionNum, realityAnswers, score) {
+  RealityAnswer.call(this, questionNum, realityAnswer, score);
 }
 
-RealityShortAnswerScore.prototype.getScore = function() {
+RealityShortAnswerScore.prototype = Object.create(RealityShortAnswerScore.prototype);
+
+RealityShortAnswerScore.prototype.constructor = RealityShortAnswerScore;
+
+RealityShortAnswerScore.prototype.getScore = function(elementName) {
   var score = 0;
 
   var answers = [];
