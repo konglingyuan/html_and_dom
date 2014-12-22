@@ -7,24 +7,7 @@ RealityShortAnswerScore.prototype = Object.create(RealityShortAnswerScore.protot
 RealityShortAnswerScore.prototype.constructor = RealityShortAnswerScore;
 
 RealityShortAnswerScore.prototype.getScore = function(elementName) {
-  var score = 0;
-
-  var answers = [];
-
-  var _this = this;
-
-  if(this.realityAnswers) {
-    answers.push(this.realityAnswers);
+  if (elementName) {
+    return this.realityAnswers === elementName.value.trim() ? this.score : 0;
   }
-
-  _.forEach(DefaultAnswer.all(), function(findAllAnswer) {
-    if(_this.questionNum === findAllAnswer.questionNum) {
-      for(var i = 0; i < answers.length; i++) {
-        score = _.contains(findAllAnswer.defaultAnswer, answers[i]) ? findAllAnswer.score : 0;
-      }
-    }
-    return;
-  });
-
-  return score;
 };
