@@ -1,5 +1,6 @@
-function RealityFillAnswerScore(questionNums, realityAnswer, score) {
+function RealityFillAnswerScore(questionNums, realityAnswer, score, fillCount) {
   RealityAnswer.call(this, questionNums, realityAnswer, score);
+  this.fillCount = fillCount;
 }
 
 RealityFillAnswerScore.prototype = Object.create(RealityAnswer.prototype);
