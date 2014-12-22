@@ -1,7 +1,4 @@
 function getScore () {
-  var score = 0;
-  var form = document.getElementById("form");
-
   var inputsInfomations = [
     { id : form.class, text : "class" },
     { id : form.schoolNum, text : "number" },
@@ -14,9 +11,9 @@ function getScore () {
 
   var allAnswers = DefaultAnswer.all();
 
-  var totalScore = new TotalScore(form.name, allAnswers);
+  var totalScore = new TotalScore(document, allAnswers);
 
-  var account = document.getElementById("account").value = score;
+  var account = document.getElementById("account").value;
   if(account) {
     account.innerText = totalScore.getTotalScpre();
   }
