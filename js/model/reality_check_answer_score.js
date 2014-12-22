@@ -1,8 +1,12 @@
-function RealityCheckAnswerScore(questionNum) {
-  this.questionNum = questionNum;
+function RealityCheckAnswerScore(questionNums, realityAnswer, score) {
+  RealityAnswer.call(this, questionNums, realityAnswer, score);
 }
 
-RealityCheckAnswerScore.prototype.getScore = function() {
+RealityCheckAnswerScore.prototype = Object.create(RealityAnswer.prototype);
+
+RealityCheckAnswerScore.prototype.constructor = RealityCheckAnswerScore;
+
+RealityCheckAnswerScore.prototype.getScore = function(elementName) {
   var score = 0;
 
   var findAllAnswer = DefaultAnswer.all();
