@@ -12,35 +12,14 @@ function getScore () {
     return false;
   }
 
-  var fillScoreOne = new RealityFillAnswerScore(form.fill_1_1, form.fill_1_1.value, 5);
-  score += fillScoreOne.getScore(form.fill_1_1.name);
+  var allAnswers = DefaultAnswer.all();
 
-  var fillScoreTwoA = new RealityFillAnswerScore(form.fill_1_2, form.fill_1_2.value, 5);
-  score += fillScoreTwoA.getScore(form.fill_1_2.name);
+  var totalScore = new TotalScore(form.name, allAnswers);
 
-  var radioScoreOne = new RealityRadioAnswerScore(form.radio_2_1, form.radio_2_1.value);
-  score += radioScoreOne.getScore();
-
-  var radioScoreTwo = new RealityRadioAnswerScore(form.radio_2_2, form.radio_2_2.value);
-  score += radioScoreTwo.getScore();
-
-  var checkScoreOne = new RealityCheckAnswerScore(form.check_3_1);
-  score += checkScoreOne.getScore();
-
-  var checkScoreTwo = new RealityCheckAnswerScore(form.check_3_2);
-  score += checkScoreTwo.getScore();
-
-  var judgeScoreOne = new RealityJudgeAnswerScore(form.judge_4_1, form.judge_4_1.value);
-  score += judgeScoreOne.getScore();
-
-  var judgeScoreTwo = new RealityJudgeAnswerScore(form.judge_4_2, form.judge_4_2.value);
-  score += judgeScoreTwo.getScore();
-
-  var shortScoreOne = new RealityShortAnswerScore(form.short_5_1.name, form.short_5_1.value);
-  score += shortScoreOne.getScore();
-
-  document.getElementById("account").value = score;
-
+  var account = document.getElementById("account").value = score;
+  if(account) {
+    account.innerText = totalScore.getTotalScpre();
+  }
   return false;
 }
 
