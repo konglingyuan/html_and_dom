@@ -12,11 +12,11 @@ function getScore () {
     return false;
   }
 
-  var fillScoreOne = new RealityFillAnswerScore(form.fill_1_1);
-  score += fillScoreOne.getScore();
+  var fillScoreOne = new RealityFillAnswerScore(form.fill_1_1, form.fill_1_1.value, 5);
+  score += fillScoreOne.getScore(form.fill_1_1.name);
 
-  var fillScoreTwoA = new RealityFillAnswerScore(form.fill_1_2);
-  score += fillScoreTwoA.getScore();
+  var fillScoreTwoA = new RealityFillAnswerScore(form.fill_1_2, form.fill_1_2.value, 5);
+  score += fillScoreTwoA.getScore(form.fill_1_2.name);
 
   var radioScoreOne = new RealityRadioAnswerScore(form.radio_2_1, form.radio_2_1.value);
   score += radioScoreOne.getScore();

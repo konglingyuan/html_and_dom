@@ -1,28 +1,30 @@
-function RealityFillAnswerScore(questionNums) {
-  this.questionNums = questionNums;
+function RealityFillAnswerScore(questionNums, realityAnswer, score) {
+  RealityAnswer.call(this, questionNums, realityAnswer, score);
 }
 
-RealityFillAnswerScore.prototype.getScore = function() {
-  var score = 0;
+RealityFillAnswerScore.prototype = Object.create(RealityAnswer.prototype);
 
+RealityFillAnswerScore.prototype.constructor = RealityFillAnswerScore;
+
+RealityFillAnswerScore.prototype.getScore = function(elementName) {
   var answers = [];
 
   var _this = this;
 
-  var tagName;
+  var getFillScore = function(realityAnswers, defaultAnswer, score) {
+    var answer = _.some(realityAnswers, function(realityAnswer) {
+      return realityAnswer === defaultAnswer;
+    });
+    return answer ? score : 0;
+  };
 
-  _.forEach(_this.questionNums, function(questionNum) {
-    if(questionNum) {
-      answers.push(questionNum.value);
-      tagName = questionNum.name;
+  _.forEach(this.questionNums, function(questionNum) {
+    if(elementName) {
+      answers.push(elementName.value);
     }
   });
 
-  var findName = _.find(DefaultAnswer.all(), { 'questionNum' : tagName });
-
-  _.forEach(findName.defaultAnswer, function(defaultAnswer) {
-    score += _.contains(answers, defaultAnswer) ? findName.score : 0;
+  _.forEach(answers, function(answer) {
+    _this.score += _.contains(answers, defaultAnswer) ? getFillScore(_.this.score) : 0;
   });
-
-  return score;
 };
