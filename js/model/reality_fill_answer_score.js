@@ -19,13 +19,13 @@ RealityFillAnswerScore.prototype.getScore = function(elementName) {
     return answer ? score : 0;
   };
 
-  _.forEach(this.questionNums, function(questionNum) {
+  _.forEach(this.fillCount, function(fillCount) {
     if(elementName) {
       answers.push(elementName.value);
     }
   });
 
   _.forEach(answers, function(answer) {
-    _this.score += _.contains(answers, defaultAnswer) ? getFillScore(_.this.score) : 0;
+    _this.totalScore += _.contains(answers, defaultAnswer) ? getFillScore(_.this.score) : 0;
   });
 };
