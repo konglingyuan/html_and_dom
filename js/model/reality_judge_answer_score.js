@@ -1,9 +1,12 @@
-function RealityJudgeAnswerScore(questionNum, realityAnswers) {
-  this.questionNum = questionNum;
-  this.realityAnswers = realityAnswers;
+function RealityJudgeAnswerScore(questionNums, realityAnswer, score) {
+  RealityAnswer.call(this, questionNums, realityAnswer, score);
 }
 
-RealityJudgeAnswerScore.prototype.getScore = function() {
+RealityJudgeAnswerScore.prototype = Object.create(RealityAnswer.prototype);
+
+RealityJudgeAnswerScore.prototype.constructor = RealityJudgeAnswerScore;
+
+RealityJudgeAnswerScore.prototype.getScore = function(elementName) {
   var score = 0;
 
   var findAllAnswer = DefaultAnswer.all();
