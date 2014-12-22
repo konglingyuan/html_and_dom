@@ -1,4 +1,4 @@
-function RealityShortAnswerScore(questionNum, realityAnswers, score) {
+function RealityShortAnswerScore(questionNum, realityAnswer, score) {
   RealityAnswer.call(this, questionNum, realityAnswer, score);
 }
 
@@ -8,6 +8,6 @@ RealityShortAnswerScore.prototype.constructor = RealityShortAnswerScore;
 
 RealityShortAnswerScore.prototype.getScore = function(elementName) {
   if (elementName) {
-    this.totalScore = this.realityAnswers === elementName.value.trim() ? this.score : 0;
+    this.totalScore = this.realityAnswer === elementName.value.trim() ? this.score : 0;
   }
 };
