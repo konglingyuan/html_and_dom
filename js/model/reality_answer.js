@@ -1,6 +1,6 @@
-function RealityAnswer(questionNum, defaultAnswer, score) {
+function RealityAnswer(questionNum, realityAnswer, score) {
   this.questionNum = questionNum;
-  this.defaultAnswer = defaultAnswer;
+  this.realityAnswer = realityAnswer;
   this.score = score;
 }
 
