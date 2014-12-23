@@ -12,13 +12,6 @@ RealityFillAnswerScore.prototype.getScore = function(document) {
 
   var _this = this;
 
-  var getFillScore = function(realityAnswers, defaultAnswer, score) {
-    var answer = _.some(realityAnswers, function(realityAnswer) {
-      return realityAnswer === defaultAnswer;
-    });
-    return answer ? score : 0;
-  };
-
   for(var i = 0; i < _this.fillCount; i++) {
     var elements = document.getElementsByName(this.questionNum);
     for(var j = 0; j < elements.length; j++) {
@@ -29,6 +22,13 @@ RealityFillAnswerScore.prototype.getScore = function(document) {
   }
 
   _.uniq(answers).forEach(function (answer) {
-    _this.score += getScore(this.realityAnswer, answer, this.score);
+    _this.score += getFillScore(_this.realityAnswer, answer, _this.score);
   });
 };
+
+function getFillScore (realityAnswers, defaultAnswer, score) {
+  var answer = _.some(realityAnswers, function(realityAnswer) {
+    return realityAnswer === defaultAnswer;
+  });
+  return answer ? score : 0;
+}

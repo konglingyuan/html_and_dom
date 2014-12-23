@@ -10,6 +10,6 @@ RealityShortAnswerScore.prototype.getScore = function(document) {
   var element = document.getElementsByName(this.questionNums);
 
   if (element) {
-    this.totalScore = this.realityAnswer === element.value.trim() ? this.score : 0;
+    this.totalScore = this.realityAnswer === element.value ? this.score : 0;
   }
 };

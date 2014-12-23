@@ -1,19 +1,23 @@
-function TotalScore(document, realityAnswers) {
+function TotalScore(document, defaultAnswers) {
   this.document = document;
-  this.realityAnswers = realityAnswers;
+  this.defaultAnswers = defaultAnswers;
 }
 
 TotalScore.prototype.getTotalScore = function() {
   var scores = [];
-  _.forEach(this.realityAnswers, function(realityAnswer) {
-    realityAnswer.getScore(this.document);
+  var totalScore = 0;
+  _.forEach(this.defaultAnswers, function(defaultAnswer) {
+    defaultAnswer.getScore(this.document);
   });
 
-  _.forEach(this.realityAnswers, function(realityAnswer) {
-    scores.push(realityAnswer, "score");
+  _.forEach(this.defaultAnswers, function(answer) {
+    if(this.document.value === answer.defaultAnswer) {
+      scores.push(answer);
+    }
   });
 
-  return _.reduce(scores, function (scoreA, scoreB) {
-    return scoreA + scoreB;
+  _.find(scores, function(score) {
+    totalScore += score.score;
   });
+  return totalScore;
 };

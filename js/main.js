@@ -9,14 +9,13 @@ function getScore () {
     return false;
   }
 
-  var realityAnswers = DefaultAnswer.all();
+  var defaultAnswers = DefaultAnswer.all();
 
-  var totalScore = new TotalScore(document, realityAnswers);
+  var totalScore = new TotalScore(document, defaultAnswers);
 
   var account = document.getElementById("account");
-  if(account) {
-    account.innerText = totalScore.getTotalScore();
-  }
+  account.value = totalScore.getTotalScore();
+
   return false;
 }
 
