@@ -26,6 +26,5 @@ RealityFillAnswerScore.prototype.getScore = function(document) {
     _this.totalScore += _.contains(realAnswers, defaultAnswer) ? _this.score : 0;
   });
 
-
   return _this.totalScore;
 };

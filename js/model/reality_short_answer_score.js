@@ -12,5 +12,6 @@ RealityShortAnswerScore.prototype.getScore = function(document) {
   if (element) {
     this.totalScore = this.defaultAnswer.toString() === element.value ? this.score : 0;
   }
+  
   return this.totalScore;
 };
