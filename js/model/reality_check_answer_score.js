@@ -1,5 +1,5 @@
-function RealityCheckAnswerScore(questionNums, realityAnswer, score) {
-  RealityAnswer.call(this, questionNums, realityAnswer, score);
+function RealityCheckAnswerScore(questionNums, defaultAnswer, score) {
+  RealityAnswer.call(this, questionNums, defaultAnswer, score);
 }
 
 RealityCheckAnswerScore.prototype = Object.create(RealityAnswer.prototype);
@@ -11,15 +11,18 @@ RealityCheckAnswerScore.prototype.getScore = function(document) {
 
   var answer = [];
 
-  var elements = document.getElementsByName(this.questionNums);
-
-  _.forEach(elements, function(oneNum) {
-    if(oneNum.checked) {
+  var elements = document.getElementsByName(_this.questionNum);
+  var oneNum;
+  _.forEach(elements, function(element) {
+    oneNum = element;
+    if(element.checked) {
       answer.push(oneNum.value);
     }
-
-    if(oneNum.name === this.questionNums) {
-      this.totalScore = (answer.toString() === this.questionNums.value.toString()) ? this.score : 0;
-    }
   });
+
+  if(oneNum.name === _this.questionNum) {
+    this.totalScore += answer.toString() ? this.score : 0;
+  }
+
+  return this.totalScore;
 };

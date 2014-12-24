@@ -1,5 +1,5 @@
-function RealityFillAnswerScore(questionNum, realityAnswer, score, fillCount) {
-  RealityAnswer.call(this, questionNum, realityAnswer, score);
+function RealityFillAnswerScore(questionNum, defaultAnswer, score, fillCount) {
+  RealityAnswer.call(this, questionNum, defaultAnswer, score);
   this.fillCount = fillCount;
 }
 
@@ -21,14 +21,11 @@ RealityFillAnswerScore.prototype.getScore = function(document) {
     }
   }
 
-  _.uniq(answers).forEach(function (answer) {
-    _this.score += getFillScore(_this.realityAnswer, answer, _this.score);
+  var realAnswers = _.uniq(answers);
+  _.forEach(_this.defaultAnswer, function(defaultAnswer) {
+    _this.totalScore += _.contains(realAnswers, defaultAnswer) ? _this.score : 0;
   });
-};
 
-function getFillScore (realityAnswers, defaultAnswer, score) {
-  var answer = _.some(realityAnswers, function(realityAnswer) {
-    return realityAnswer === defaultAnswer;
-  });
-  return answer ? score : 0;
-}
+
+  return _this.totalScore;
+};

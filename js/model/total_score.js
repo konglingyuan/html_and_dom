@@ -6,18 +6,10 @@ function TotalScore(document, defaultAnswers) {
 TotalScore.prototype.getTotalScore = function() {
   var scores = [];
   var totalScore = 0;
-  _.forEach(this.defaultAnswers, function(defaultAnswer) {
-    defaultAnswer.getScore(this.document);
+  var _this = this;
+  _.forEach(_this.defaultAnswers, function(defaultAnswer) {
+    totalScore += defaultAnswer.getScore(_this.document);
   });
 
-  _.forEach(this.defaultAnswers, function(answer) {
-    if(this.document.value === answer.defaultAnswer) {
-      scores.push(answer);
-    }
-  });
-
-  _.find(scores, function(score) {
-    totalScore += score.score;
-  });
   return totalScore;
 };

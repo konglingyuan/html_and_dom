@@ -1,5 +1,5 @@
-function RealityShortAnswerScore(questionNum, realityAnswer, score) {
-  RealityAnswer.call(this, questionNum, realityAnswer, score);
+function RealityShortAnswerScore(questionNum, defaultAnswer, score) {
+  RealityAnswer.call(this, questionNum, defaultAnswer, score);
 }
 
 RealityShortAnswerScore.prototype = Object.create(RealityShortAnswerScore.prototype);
@@ -7,9 +7,10 @@ RealityShortAnswerScore.prototype = Object.create(RealityShortAnswerScore.protot
 RealityShortAnswerScore.prototype.constructor = RealityShortAnswerScore;
 
 RealityShortAnswerScore.prototype.getScore = function(document) {
-  var element = document.getElementsByName(this.questionNums);
+  var element = document.getElementById(this.questionNum);
 
   if (element) {
-    this.totalScore = this.realityAnswer === element.value ? this.score : 0;
+    this.totalScore = this.defaultAnswer.toString() === element.value ? this.score : 0;
   }
+  return this.totalScore;
 };
